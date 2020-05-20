@@ -1,4 +1,5 @@
 class DepartmentsController < ApplicationController
+before_action :set_department
 before_action 
 
   def index
@@ -13,11 +14,20 @@ before_action
   end
 
   def create
-    
+    @department = Department.new(departments_params)
+    if @department.save
+      redirect_to department_path
+    else
+      render :new
+    end
   end
-  
+
   def update
-    
+    if @department.update(departments_params)
+      redirect_to @department
+    else
+      render :edit
+    end
   end
 
   def delete
@@ -34,7 +44,7 @@ before_action
     @deparment = Department.find(params[:id])
   end
 
-  def set_params
+  def departments_params
     params.require(:department).permit(:stores, :floor)
   end
 
