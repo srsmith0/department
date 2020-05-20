@@ -26,8 +26,10 @@ ActiveRecord::Schema.define(version: 2020_05_20_211228) do
     t.string "name"
     t.integer "price"
     t.string "description"
+    t.bigint "department_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "items", "departments"
 end
