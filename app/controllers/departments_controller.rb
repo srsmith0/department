@@ -30,11 +30,10 @@ before_action
     end
   end
 
-  def delete
-    
+  def destroy
+    @department.destroy
+    redirect_to department_path
   end
-
-
 
   def edit
   end
