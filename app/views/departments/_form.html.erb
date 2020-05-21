@@ -1,0 +1,14 @@
+<h1> <%= @department.id ? "Edit Department" : "Create Department" %> </h1>
+
+<%= form_for @department do |f| %>
+
+<%= f.label :stores %>
+<%= f.text_field :stores %>
+
+<%= f.label :floor %>
+<%= f.text_field :floor %>
+
+<%= f.submit %>
+
+<% end %>
+

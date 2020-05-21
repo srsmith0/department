@@ -1,2 +1,7 @@
-<h1>Items#index</h1>
-<p>Find me in app/views/items/index.html.erb</p>
+<h1> <%= @department.stores%> Items </h1>
+<%= link_to 'Create a new item', new_department_item_path(@department) %>
+<ul>
+  <% @items.each do |item| %>
+    <li> <%= link_to item.name, [@department, item] %> </li>
+    <% end %>
+</ul>
